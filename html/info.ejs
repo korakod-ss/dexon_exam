@@ -1,0 +1,361 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            
+            
+            <% if(action == 'add') { %>
+
+            <div class="card">
+                <div class="card-header">PIPING</div>
+                <div class="card-body">
+                    <form method="POST" action="/sample_data/add_sample_data">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>line_number</label>
+                                    <input type="text" name="line_number" id="line_number" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>location</label>
+                                    <input type="text" name="location" id="location" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>from</label>
+                                    <input type="text" name="from" id="from" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>to</label>
+                                    <input type="text" name="to" id="to" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>drawing_number</label>
+                                    <input type="text" name="drawing_number" id="drawing_number" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>service </label>
+                                    <input type="text" name="service " id="service " class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>material </label>
+                                    <input type="text" name="material " id="material " class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>inservice_date </label>
+                                    <input type="date" name="inservice_date " id="inservice_date " class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>pipe_size </label>
+                                    <input type="number" name="pipe_size " id="pipe_size " class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>original_thickness </label>
+                                    <input type="number" original_thickness ="to" id="original_thickness " class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>stress</label>
+                                    <input type="number" name="stress" id="stress" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>joint_efficiency</label>
+                                    <input type="number" name="joint_efficiency" id="joint_efficiency" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>ca</label>
+                                    <input type="number" name="ca" id="ca" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>design_life</label>
+                                    <input type="number" name="design_life" id="design_life" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>design_pressure</label>
+                                    <input type="number" name="design_pressure" id="design_pressure" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>operation_pressure</label>
+                                    <input type="number" name="operation_pressure" id="operation_pressure" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>design_temperature</label>
+                                    <input type="number" name="design_temperature" id="design_temperature" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>operating_temperature</label>
+                                    <input type="number" name="operating_temperature" id="operating_temperature" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="submit" name="submit_button" class="btn btn-primary" value="Add" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <% } else if(action == 'edit') { %>
+            <div class="card">
+                <div class="card-header">PIPING</div>
+                <div class="card-body">
+                    <form method="POST" action="/edit/<%= sampleData.id %>">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>line_number</label>
+                                    <input type="text" name="line_number" id="line_number" class="form-control" value="<%= sampleData.line_number %>"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>location</label>
+                                    <input type="text" name="location" id="location" class="form-control" value="<%= sampleData.location %>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>from</label>
+                                    <input type="text" name="from" id="from" class="form-control" value="<%= sampleData.pipe_from %>"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>to</label>
+                                    <input type="text" name="to" id="to" class="form-control" value="<%= sampleData.pipe_to %>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>drawing_number</label>
+                                    <input type="text" name="drawing_number" id="drawing_number" class="form-control" value="<%= sampleData.drawing_number %>"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>service </label>
+                                    <input type="text" name="service" id="service" class="form-control" value="<%= sampleData.service %>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>material </label>
+                                    <input type="text" name="material" id="material" class="form-control" value="<%= sampleData.material %>"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>inservice_date </label>
+                                    <input type="date" name="inservice_date" id="inservice_date" class="form-control" value="<%= sampleData.inservice_date %>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>pipe_size </label>
+                                    <input type="number" name="pipe_size" id="pipe_size" class="form-control" value="<%= sampleData.pipe_size %>"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>original_thickness </label>
+                                    <input type="number" step="0.01" name ="original_thickness" id="original_thickness" class="form-control" value="<%= sampleData.original_thickness %>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>stress</label>
+                                    <input type="number" name="stress" id="stress" class="form-control" value="<%= sampleData.stress %>"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>joint_efficiency</label>
+                                    <input type="number" name="joint_efficiency" id="joint_efficiency" class="form-control" value="<%= sampleData.joint_efficiency %>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>ca</label>
+                                    <input type="number" name="ca" id="ca" class="form-control" value="<%= sampleData.ca %>"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>design_life</label>
+                                    <input type="number" name="design_life" id="design_life" class="form-control" value="<%= sampleData.design_life %>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>design_pressure</label>
+                                    <input type="number" name="design_pressure" id="design_pressure" class="form-control" value="<%= sampleData.design_pressure %>" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>operation_pressure</label>
+                                    <input type="number" name="operation_pressure" id="operation_pressure" class="form-control" value="<%= sampleData.operation_pressure %>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>design_temperature</label>
+                                    <input type="number" name="design_temperature" id="design_temperature" class="form-control" value="<%= sampleData.design_temperature %>"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>operating_temperature</label>
+                                    <input type="number" step="0.01" name="operating_temperature" id="operating_temperature" class="form-control" value="<%= sampleData.operating_temperature %>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="submit" name="submit_button" class="btn btn-primary" value="Edit" />
+                            <a href="/delete/<%= sampleData.id %>" class="btn btn-danger ">DELETE</a>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+            <% } else { %>
+                
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">PIPING</div>
+                        <div class="col">
+                            <a href="/sample_data/add" class="btn btn-success btn-sm float-end">Add</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Line number</th>
+                                <th>location</th>
+                                <th>from</th>
+                                <th>To</th>
+                                <th>Pipe size (inch)</th>
+                                <th>service</th>
+                                <th>material</th>
+                                <th></th>
+                            </tr>
+                            <%
+                            if(sampleData.length > 0)
+                            {
+                                sampleData.forEach(function(data){
+                            %>
+                            <tr>
+                                <td><%= data.line_number %></td>
+                                <td><%= data.location %></td>
+                                <td><%= data.from %></td>
+                                <td><%= data.to %></td>
+                                <td><%= data.pipe_size %></td>
+                                <td><%= data.service %></td>
+                                <td><%= data.material %></td>
+                                <td>
+                                    <a href="/sample/edit/<%= sampleData.id %>" class="btn btn-primary btn-sm">INFO</a>
+                                    <a href="/sample/delete/<%= sampleData.id %>" class="btn btn-danger btn-sm">DETAIL</a>
+                                </td>
+                            </tr>
+                            <%
+                                });
+                            }
+                            else
+                            {
+                            %>
+                            <tr>
+                                <td colspan="5">No Data Found</td>
+                            </tr>
+                            <%
+                            }
+                            %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+
+        </div> 
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

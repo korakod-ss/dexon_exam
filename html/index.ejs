@@ -1,0 +1,89 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title>Piping</title>
+    </head>
+    <body>
+        <div class="container">
+            
+            
+            <% if(action == 'add') { %>
+
+            <% } else if(action == 'edit') { %>
+            
+            <% } else { %>
+                
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">PIPING</div>
+                        <div class="col">
+                            <a href="/sample/add" class="btn btn-success btn-sm float-end">Add Piping</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Line number</th>
+                                <th>location</th>
+                                <th>from</th>
+                                <th>To</th>
+                                <th>Pipe size (inch)</th>
+                                <th>service</th>
+                                <th>material</th>
+                                
+                                <th></th>
+                            </tr>
+                            <%
+                            if(sampleData.length > 0)
+                            {
+                                sampleData.forEach(function(data){
+                            %>
+                            <tr>
+                                <td><%= data.line_number %></td>
+                                <td><%= data.location %></td>
+                                <td><%= data.pipe_from %></td>
+                                <td><%= data.pipe_to %></td>
+                                <td><%= data.pipe_size %></td>
+                                <td><%= data.service %></td>
+                                <td><%= data.material %></td>
+                                
+                                <td>
+                                    <a href="/sample/edit/<%= data.id %>" class="btn btn-primary btn-sm">INFO</a>
+                                    <a href="/sample/detail/<%= data.id %>" class="btn btn-primary btn-sm">DETAIL</a>
+                                </td>
+                            </tr>
+                            <%
+                                });
+                            }
+                            else
+                            {
+                            %>
+                            <tr>
+                                <td colspan="5">No Data Found</td>
+                            </tr>
+                            <%
+                            }
+                            %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+
+        </div> 
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

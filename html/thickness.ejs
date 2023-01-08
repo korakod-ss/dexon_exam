@@ -1,0 +1,168 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+        <title></title>
+    </head>
+    <body>
+        <div class="container">    
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">LINE NUMBER: <%=line_number%></div>
+                    </div>
+                    <div class="col">CML NUMBER: <%=cml_number%></div>
+                    <div class="col">TP NUMBER: <%=tp_number%></div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th  colspan="2">Thickness</th>
+                                <th><button type="button" class="btn btn-success btn-sm float-end" data-bs-toggle="modal" data-bs-target="#ModalTPForm">Add Thickness</button></th>
+                                <!-- Modal HTML Markup -->
+                            <div id="ModalTPForm" class="modal fade">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title">ADD FORM</h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form role="form" method="POST" action="/t/add/?id=<%=id_test%>">
+                                                <input type="hidden" name="_token" value="">
+                                                <div class="form-group">
+                                                    <label class="control-label">line number</label>
+                                                    <div>
+                                                        <input type="text" name="line_number" id="line_number" class="form-control" value="<%=line_number%>" readonly="readonly"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">CML number</label>
+                                                    <div>
+                                                        <input type="text" name="cml_number" id="cml_number" class="form-control" value="<%=cml_number%>" readonly/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">TP number</label>
+                                                    <div>
+                                                        <input type="number" name="tp_number" id="tp_number" class="form-control" value="<%=tp_number%>" readonly/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Inspection date</label>
+                                                    <div>
+                                                        <input type="date" class="form-control input-lg" name="inspection_date">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label class="control-label">Actual thickness</label>
+                                                    <div>
+                                                        <input type="text" class="form-control input-lg" name="actual_thickness" >
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <div>
+                                                        <button type="submit" class="btn btn-success">ADD</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div><!-- /.modal -->
+                            </tr>
+                            <tr>
+                                <th>Inspection date</th>
+                                <th>Actual thickness</th>
+                                
+                                <th></th>
+                            </tr>
+                            <%
+                            if(data.length > 0)
+                            {
+                                data.forEach(function(data){
+                            %>
+                            <tr>
+                                <td><%= data.inspection_date %></td>
+                                <td><%= data.actual_thickness %></td>
+                                
+                                <td>
+                                    <a href="/t/get/edit/<%= data.id %>" class="btn btn-primary btn-sm">EDIT</a>
+                                    <a href="/t/delete/<%= data.id %>" class="btn btn-danger btn-sm">DEL</a>
+                                </td>
+                            </tr>
+                            <!-- Modal HTML Markup -->
+                            <div id="ModalTPForm" class="modal fade">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        
+                                        <div class="modal-body">
+                                            <form role="form" method="POST" action="/tp/add/">
+                                                <input type="hidden" name="_token" value="">
+                                                <div class="form-group">
+                                                    <label class="control-label">CML number</label>
+                                                    <div>
+                                                        <input type="text" class="form-control input-lg" name="tp_number" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">TP description</label>
+                                                    <div>
+                                                        <input type="text" class="form-control input-lg" name="tp_description" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label class="control-label">Note</label>
+                                                    <div>
+                                                        <input type="text" class="form-control input-lg" name="note" />
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <div>
+                                                        <button type="submit" class="btn btn-success">EDIT</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div><!-- /.modal -->
+                            <%
+                                });
+                            }
+                            else
+                            {
+                            %>
+                            <tr>
+                                <td colspan="5">No Data Found</td>
+                            </tr>
+                            <%
+                            }
+                            %>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div> 
+
+       
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+       
+    </body>
+</html>
